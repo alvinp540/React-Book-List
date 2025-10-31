@@ -34,6 +34,7 @@ function Books() {
 
   return (
     <>
+    <Navbar/>
     <div className="bg-gray-100 py-8 px-4 min-h-screen">
       <h2 className="text-3xl font-bold text-center text-blue-600 mb-8">
         Bookshelf
@@ -66,6 +67,7 @@ function Books() {
         ))}
       </div>
     </div>
+    <Footer/>
  </> 
  );
 }
