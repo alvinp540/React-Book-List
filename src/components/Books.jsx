@@ -1,41 +1,34 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 function Books() {
   const [books, setBooks] = useState([]);
-  const [query, setQuery] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
 
-  const fetchBooks = async (searchTerm) => {
-    setLoading(true);
-    setError("");
-    try {
-      const response = await axios.get(
-        `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`
-      );
-      setBooks(response.data.items || []);
-    } catch (error) {
-      setError("Failed to fetch books. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Base URL for Google Books API (search term can be customized)
+  const url = "https://www.googleapis.com/books/v1/volumes?q=react";
 
   useEffect(() => {
-    fetchBooks(query);
+    const fetchBooks = async () => {
+      try {
+        const response = await axios.get(url);
+        setBooks(response.data.items || []);
+      } catch (error) {
+        console.error("Fetching failed", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBooks();
   }, []);
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (!query.trim()) return;
-    fetchBooks(query);
-  };
 
   return (
     <>
-      
+      <Navbar />
+     
+      <Footer />
     </>
   );
 }
