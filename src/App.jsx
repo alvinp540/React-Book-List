@@ -1,8 +1,7 @@
 import './app.css'
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Books from "./components/Books";
-const BookShelf = React.lazy(() => import("./components/Books"));
+const Books = React.lazy(() => import("./components/Books"));
 const Home = React.lazy(() => import("./components/Home"));
 
 
