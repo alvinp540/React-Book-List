@@ -29,5 +29,5 @@ A simple and responsive React application that allows users to explore books usi
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/google-books-explorer.git
+   git clonehttps://github.com/alvinp540/React-Book-List.git
    cd google-books-explorer
